@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 body{overflow:hidden;color:white}
 
-/* SAYFA ORTAK */
+/* SAYFALAR */
 .page{
   position:absolute;
   width:100%;
@@ -20,23 +20,18 @@ body{overflow:hidden;color:white}
   align-items:center;
   text-align:center;
   padding:30px;
-  transition:1s;
+  transition:0.8s ease;
 }
 
 /* TEMALAR */
-#page1{background:radial-gradient(circle,#1a1a2e,#0f0f1a);}
-#page2{
-  background:linear-gradient(135deg,#141e30,#243b55);
-  transform:translateX(100%);
-}
-#page3{
-  background:linear-gradient(135deg,#e63946,#ff758f);
-  transform:translateX(200%);
-}
-#page4{
-  background:linear-gradient(135deg,#2b5876,#4e4376);
-  transform:translateX(300%);
-}
+.page:nth-child(1){background:radial-gradient(circle,#1a1a2e,#0f0f1a);}
+.page:nth-child(2){background:linear-gradient(135deg,#141e30,#243b55);}
+.page:nth-child(3){background:linear-gradient(135deg,#42275a,#734b6d);}
+.page:nth-child(4){background:linear-gradient(135deg,#e63946,#ff758f);}
+.page:nth-child(5){background:linear-gradient(135deg,#2b5876,#4e4376);}
+.page:nth-child(6){background:linear-gradient(135deg,#ff512f,#dd2476);}
+.page:nth-child(7){background:linear-gradient(135deg,#3a1c71,#d76d77);}
+.page:nth-child(8){background:linear-gradient(135deg,#0f2027,#2c5364);}
 
 /* BUTON */
 button{
@@ -53,7 +48,16 @@ button{
 }
 button:hover{transform:scale(1.1);}
 
-/* Kalp animasyonu */
+/* GÖSTERGE */
+#indicator{
+  position:fixed;
+  top:15px;
+  right:20px;
+  font-size:14px;
+  opacity:0.8;
+}
+
+/* Kalpler */
 .heart{
   position:absolute;
   animation:float 6s linear infinite;
@@ -67,96 +71,87 @@ button:hover{transform:scale(1.1);}
 
 <body>
 
-<!-- 1 -->
-<div class="page" id="page1">
+<div id="indicator">1 / 8</div>
+
+<div class="page">
   <h1>Hazır mısın? ❤️</h1>
-  <p style="margin-top:15px;opacity:0.8;">
-    Sana küçük bir sürprizim var...
-  </p>
-  <button onclick="next()">Devam Et</button>
+  <button onclick="next()">EMİN MİSİN?</button>
 </div>
 
-  <div class="page" id="page1">
-  <h1>Emin misin? ❤️</h1>
-  <p style="margin-top:15px;opacity:0.8;">
-    Sana küçük bir sürprizim var...
-  </p>
-  <button onclick="next()">HİÇ BİTMİYCEK GİBİ</button>
-</div>
-<!-- 2 -->
-<div class="page" id="page2">
+<div class="page">
   <h1>Bir şey söyleyeceğim... 🌙</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    ÇOOOKKKK GÜZELSİN
-  </p>
-  <button onclick="next()">BELKİ DE BU SONDUR 💫</button>
+  <p>ÇOOOKK GÜZELSİN</p>
+  <button onclick="next()">YAVAŞ İLERLE BİTMESİN HEMEN</button>
 </div>
 
-  <div class="page" id="page2">
-  <h1>ÇOK HIZLI İLERLİYORSUN  🌙</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    ÇOOOKKKK GÜZELSİN
-  </p>
-  <button onclick="next()">BENİM İÇİN BASS 💫</button>
+<div class="page">
+  <h1>İYİ Kİ VARSIN 💫</h1>
+  <p>ARADA GHOSTLASANDA </p>
+  <button onclick="next()">ÇOK HIZLI BASIYORSUN</button>
 </div>
 
-  <div class="page" id="page2">
-  <h1>BİRAZ DAHA YAVAŞ!!!! 🌙</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    PLATİN NE ZAMAN OLUYORSUN
-  </p>
-  <button onclick="next()">BİR SONRAKİ 💫</button>
+<div class="page">
+  <h1>SAÇLARIN 💖</h1>
+  <p>En karanlık anımı bile aydınlatıyor.(PLATİN OLSA DAHA FAZLA)</p>
+  <button onclick="next()">YAVAAAŞŞŞŞ</button>
 </div>
 
-  <div class="page" id="page2">
-  <h1>SAKİN OL BİTMESİN HEMEN 🌙</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    ANKARAYA DENİZ GELİRDE SEN BANA GELİR MİSİN?
-  </p>
-  <button onclick="next()">SENCE SON MU? 💫</button>
-</div>
-<!-- 3 -->
-<div class="page" id="page3">
-  <h1>Bİ TANESİN 💖</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-   ❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️
-  </p>
-  <button onclick="next()">HER GÜZEL ŞEYİN SONU GİBİ SON DEFA BASSSS ❤️</button>
+<div class="page">
+  <h1>ANKARA 🎶</h1>
+  <p>KRAL ANKARADA NE İŞİN VAR İST GEL SERİİ</p>
+  <button onclick="next()">SENCE SON MU?</button>
 </div>
 
-<!-- 4 -->
-<div class="page" id="page4">
-  <h1>İYİ Kİ VARSIN 💍</h1>
-  <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    Sadece bugün değil,  
-    her gün benimle olur musun? ❤️
-  </p>
-  <button onclick="restart()">Başa Dön</button>
+<div class="page">
+  <h1>GÜLÜŞÜN ✨</h1>
+  <p>DAHA GÖRMEDİM AMA BİZ ALLAHIDA GÖRMEDEN SEVDİK</p>
+  <button onclick="next()">DEĞİLMİŞ</button>
+</div>
+
+<div class="page">
+  <h1>İYİ Kİ VARSIN OD</h1>
+  <p>Taş üstünde taş yok küller külleri
+Omzumda baş yok kafa tuttum mahşere
+Taş üstünde taş yok küller külleri
+Omzumda baş yok kafa tuttum mahşere</p>
+  <button onclick="next()">MAALESEF HER GÜZEL ŞEYİN BİR SONU VARDIR </button>
+</div>
+
+<div class="page">
+  <h1>Sevgililer Günümüz Kutlu Olsun 💍</h1>
+  <p>Her gün benimle olur musun?</p>
+  <button onclick="prev()">Geri</button>
 </div>
 
 <script>
-let current=0;
+let current = 0;
+const pages = document.querySelectorAll(".page");
+const indicator = document.getElementById("indicator");
+
+function updatePages(){
+  pages.forEach((page, index) => {
+    page.style.transform = `translateX(${(index - current) * 100}%)`;
+  });
+  indicator.innerText = (current+1) + " / " + pages.length;
+}
 
 function next(){
-  if(current<3){
+  if(current < pages.length - 1){
     current++;
-    update();
+    updatePages();
   }
 }
 
-function restart(){
-  current=0;
-  update();
+function prev(){
+  if(current > 0){
+    current--;
+    updatePages();
+  }
 }
 
-function update(){
-  document.getElementById("page1").style.transform="translateX("+(-100*current)+"%)";
-  document.getElementById("page2").style.transform="translateX("+(100-100*current)+"%)";
-  document.getElementById("page3").style.transform="translateX("+(200-100*current)+"%)";
-  document.getElementById("page4").style.transform="translateX("+(300-100*current)+"%)";
-}
+updatePages();
 
-/* Uçuşan kalpler */
+/* Kalp animasyonu */
 function createHeart(){
   const heart=document.createElement("div");
   heart.classList.add("heart");
