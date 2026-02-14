@@ -7,14 +7,9 @@
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{overflow:hidden;color:white}
 
-body{
-  overflow:hidden;
-  background:#0f0f1a;
-  color:white;
-}
-
-/* Sayfalar */
+/* SAYFA ORTAK */
 .page{
   position:absolute;
   width:100%;
@@ -24,24 +19,28 @@ body{
   justify-content:center;
   align-items:center;
   text-align:center;
-  padding:20px;
+  padding:30px;
   transition:1s;
 }
 
-/* Sayfa 1 */
-#page1{
-  background:radial-gradient(circle,#1a1a2e,#0f0f1a);
-}
-
-/* Sayfa 2 */
+/* TEMALAR */
+#page1{background:radial-gradient(circle,#1a1a2e,#0f0f1a);}
 #page2{
-  background:linear-gradient(135deg,#e63946,#ff758f);
+  background:linear-gradient(135deg,#141e30,#243b55);
   transform:translateX(100%);
 }
+#page3{
+  background:linear-gradient(135deg,#e63946,#ff758f);
+  transform:translateX(200%);
+}
+#page4{
+  background:linear-gradient(135deg,#2b5876,#4e4376);
+  transform:translateX(300%);
+}
 
-/* Buton */
+/* BUTON */
 button{
-  margin-top:25px;
+  margin-top:30px;
   padding:12px 25px;
   border:none;
   border-radius:30px;
@@ -52,14 +51,11 @@ button{
   font-weight:bold;
   transition:0.3s;
 }
-button:hover{
-  transform:scale(1.1);
-}
+button:hover{transform:scale(1.1);}
 
 /* Kalp animasyonu */
 .heart{
   position:absolute;
-  color:#ff4d6d;
   animation:float 6s linear infinite;
 }
 @keyframes float{
@@ -71,36 +67,66 @@ button:hover{
 
 <body>
 
-<!-- SAYFA 1 -->
+<!-- 1 -->
 <div class="page" id="page1">
-  <h1>Bir şey söylemem lazım... ❤️</h1>
-  <p style="margin-top:15px;font-size:18px;opacity:0.8;">
-    Hazır mısın?
+  <h1>Hazır mısın? ❤️</h1>
+  <p style="margin-top:15px;opacity:0.8;">
+    Sana küçük bir sürprizim var...
   </p>
-  <button onclick="nextPage()">Devam Et 💌</button>
+  <button onclick="next()">Devam Et</button>
 </div>
 
-<!-- SAYFA 2 -->
+<!-- 2 -->
 <div class="page" id="page2">
-  <h1>Sevgililer Günümüz Kutlu Olsun 💖</h1>
+  <h1>Bir şey söyleyeceğim... 🌙</h1>
   <p style="margin-top:20px;font-size:18px;max-width:350px;">
-    Hayatıma girdiğin günden beri her şey daha anlamlı.  
-    Gülüşün huzurum, varlığın mutluluğum oldu.  
-    İyi ki varsın, iyi ki benimlesin.  
-    Seni her gün, her an, daha çok seviyorum. ❤️
+    Bunu belki yüzüne her zaman söylemiyorum ama  
+    hayatımın en güzel parçası sensin.
   </p>
-  <button onclick="prevPage()">Geri Dön 💕</button>
+  <button onclick="next()">Devam Et 💫</button>
+</div>
+
+<!-- 3 -->
+<div class="page" id="page3">
+  <h1>Seni Seviyorum 💖</h1>
+  <p style="margin-top:20px;font-size:18px;max-width:350px;">
+    Seninle geçen her günüm ayrı bir mutluluk.  
+    Gülüşün içimi ısıtıyor, varlığın huzur veriyor.  
+    İyi ki varsın...
+  </p>
+  <button onclick="next()">Son Sayfa ❤️</button>
+</div>
+
+<!-- 4 -->
+<div class="page" id="page4">
+  <h1>Sevgililer Günümüz Kutlu Olsun 💍</h1>
+  <p style="margin-top:20px;font-size:18px;max-width:350px;">
+    Sadece bugün değil,  
+    her gün benimle olur musun? ❤️
+  </p>
+  <button onclick="restart()">Başa Dön</button>
 </div>
 
 <script>
-function nextPage(){
-  document.getElementById("page1").style.transform="translateX(-100%)";
-  document.getElementById("page2").style.transform="translateX(0)";
+let current=0;
+
+function next(){
+  if(current<3){
+    current++;
+    update();
+  }
 }
 
-function prevPage(){
-  document.getElementById("page1").style.transform="translateX(0)";
-  document.getElementById("page2").style.transform="translateX(100%)";
+function restart(){
+  current=0;
+  update();
+}
+
+function update(){
+  document.getElementById("page1").style.transform="translateX("+(-100*current)+"%)";
+  document.getElementById("page2").style.transform="translateX("+(100-100*current)+"%)";
+  document.getElementById("page3").style.transform="translateX("+(200-100*current)+"%)";
+  document.getElementById("page4").style.transform="translateX("+(300-100*current)+"%)";
 }
 
 /* Uçuşan kalpler */
